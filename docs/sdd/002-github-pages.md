@@ -1,0 +1,64 @@
+# SDD: GitHub Pages for Shichen
+
+- **Repo:** `01_project/zzz_not_active/shichen`
+- **Status:** `approved`
+- **Date:** 2026-10-22
+- **Related:** [architecture.md](../architecture.md), [001-3d-shichen-explainer.md](./001-3d-shichen-explainer.md)
+
+## 1. Context / current architecture
+
+Shichen is a single-page Vite + React + React Three Fiber app. `vite.config.ts` has no `base`. There is no Pages workflow. The repo is on `main` at [github.com/noowxela/shichen](https://github.com/noowxela/shichen). Hosting was out of scope in the architecture note.
+
+The portfolio gallery is a separate change. It waits until this site answers at its Pages URL.
+
+## 2. Problem and non-goals
+
+**Problem:** The app has no public URL. GitHub Pages is how the other static Vite apps in this workspace are published.
+
+**Non-goals:**
+
+- Adding the project to the portfolio gallery
+- A custom domain
+- Changing the clock, the copy, or the data
+
+## 3. Questions asked and answers
+
+| Question | Answer |
+| --- | --- |
+| What ships first? | This Pages deploy. The portfolio card comes after the live URL works. |
+
+## 4. Proposed approach, pros / cons, rejected alternatives
+
+**Approach:** Set Vite `base` to `/shichen/` only when `GITHUB_ACTIONS` is set. Add `.github/workflows/pages.yml` that runs `npm ci`, `npm run build`, and deploys `dist/` with the Pages actions. Enable Pages with the GitHub Actions source, then push `main`.
+
+**Pros:**
+
+- Local `npm run dev` and `npm run preview` stay at `/`
+- Same shape as Hanabi: project site, artifact is `dist/`
+- A push to `main` republishes the site
+
+**Cons / risks:**
+
+- Asset paths break if the repo is renamed and `base` is not updated with it
+- The first workflow run fails if Pages is not set to GitHub Actions before it deploys
+
+**Rejected alternatives:**
+
+| Alternative | Why not |
+| --- | --- |
+| Hardcode `base: '/shichen/'` for every command | Local dev would only work under that path |
+| Upload a hand-built `dist/` | The workflow republishes on each push to `main` |
+| Fold this into the portfolio gallery spec | The user asked for this deploy on its own, before the gallery card |
+
+## 5. Acceptance criteria and verification
+
+- [ ] `https://noowxela.github.io/shichen/` returns 200
+- [ ] The HTML references scripts and styles under `/shichen/assets/`
+- [ ] The page renders the clock wheel and the Chinese side panel
+- [ ] `npm run build` still succeeds locally with `base` `/`
+
+## 6. Status history
+
+| Date | Status | Note |
+| --- | --- | --- |
+| 2026-10-22 | approved | User asked to deploy this site before the portfolio card |

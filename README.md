@@ -4,6 +4,8 @@ A single-page Chinese explainer for the twelve *shichen* (时辰). A 3D clock wh
 
 The wheel follows local time. Drag it to explore another hour, or tap a wedge to open that period. **跟随现在** returns the clock to the current time. 子 sits at the top and straddles midnight (23:00–01:00).
 
+Live site: [noowxela.github.io/shichen](https://noowxela.github.io/shichen/).
+
 ## Run
 
 ```bash

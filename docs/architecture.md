@@ -47,4 +47,4 @@ flowchart LR
 
 ## Deploy
 
-Static Vite build. Hosting not in v1 scope.
+GitHub Actions builds `dist/` and publishes it as a project site at `https://noowxela.github.io/shichen/`. Vite `base` is `/shichen/` only when `GITHUB_ACTIONS` is set. Local dev and preview stay at `/`.
