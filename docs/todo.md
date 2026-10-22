@@ -1,3 +1,3 @@
 # Todo
 
-- Add Shichen to the portfolio work gallery after the Pages URL is live. That change belongs in the portfolio repo.
+- The portfolio gallery card is tracked in the portfolio repo, SDD 036.
