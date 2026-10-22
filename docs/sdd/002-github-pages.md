@@ -1,7 +1,7 @@
 # SDD: GitHub Pages for Shichen
 
 - **Repo:** `01_project/zzz_not_active/shichen`
-- **Status:** `approved`
+- **Status:** `implemented`
 - **Date:** 2026-10-22
 - **Related:** [architecture.md](../architecture.md), [001-3d-shichen-explainer.md](./001-3d-shichen-explainer.md)
 
@@ -52,13 +52,16 @@ The portfolio gallery is a separate change. It waits until this site answers at 
 
 ## 5. Acceptance criteria and verification
 
-- [ ] `https://noowxela.github.io/shichen/` returns 200
-- [ ] The HTML references scripts and styles under `/shichen/assets/`
-- [ ] The page renders the clock wheel and the Chinese side panel
-- [ ] `npm run build` still succeeds locally with `base` `/`
+- [x] `https://noowxela.github.io/shichen/` returns 200
+- [x] The HTML references scripts and styles under `/shichen/assets/`
+- [x] The page renders the clock wheel and the Chinese side panel
+- [x] `npm run build` still succeeds locally with `base` `/`
+
+Verified 2026-10-22. `curl -sI https://noowxela.github.io/shichen/` is 200, and the HTML loads `/shichen/assets/index-BRyDb7ld.js` and `/shichen/assets/index-C6iygOi4.css`. A local build without `GITHUB_ACTIONS` emits `/assets/...`. In the browser the title is 十二时辰 · 活时钟, the WebGL canvas is 1834×917, and the side panel shows 午时 for 12:21. Choosing 子时 selects that period, releases 跟随现在, and the panel heading becomes 子时 · 夜半 (23:00–01:00).
 
 ## 6. Status history
 
 | Date | Status | Note |
 | --- | --- | --- |
 | 2026-10-22 | approved | User asked to deploy this site before the portfolio card |
+| 2026-10-22 | implemented | Pages is live at /shichen/; local build stays at / |

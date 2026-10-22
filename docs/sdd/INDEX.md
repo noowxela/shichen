@@ -6,4 +6,4 @@ Living specs for this repo. Change specs stay `draft` until approved.
 | --- | --- | --- | --- |
 | [000](../architecture.md) | Architecture snapshot | current | Vite + R3F explainer page |
 | [001](001-3d-shichen-explainer.md) | 3D living clock explainer | implemented | 12-wedge dial + full cultural copy |
-| [002](002-github-pages.md) | GitHub Pages | approved | Project site at /shichen/ |
+| [002](002-github-pages.md) | GitHub Pages | implemented | https://noowxela.github.io/shichen/ |
